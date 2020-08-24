@@ -42,6 +42,7 @@ let automovil = {
 let clientes = ['cliente1', 'cliente2','cliente3', 'cliente1', 'cliente2', 'cliente3', 'cliente2', 'cliente1', 'cliente1'];
 let unMap = new Map ();
 
+//arma el hashmap
 clientes.map ( cli => {
     unMap.set (cli, unMap.get ( cli  ) ? unMap.get ( cli  ) + 1 : 1   );
 });
@@ -49,13 +50,17 @@ clientes.map ( cli => {
 
 
 console.log(unMap);
+
+//trae tambien el máximo
 console.log( [...unMap.entries()].reduce( (a,b) => a[1] > b[1] ? a : b  ) );
 
 
 unMap = [...unMap.entries()].sort( (a,b) => a[1] > b[1] ? -1 : 1 );
 
-
+//trae solo el maximo
 console.log(  Math.max.apply(Math, unMap.map(function(o) { return o[1]; })   ) );
+
+//resultado
 console.log(unMap[0], unMap[1]);
 
 
